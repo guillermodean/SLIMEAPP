@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatFormFieldModule } from "@angular/material/form-field";
 
 @Component({
   selector: 'app-signup',
@@ -11,5 +12,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  signUp(){
 
+  }
 }

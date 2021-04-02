@@ -8,6 +8,8 @@ import { SigningComponent } from './components/signing/signing.component';
 import { TaskComponent } from './components/task/task.component';
 import { PrivateTasksComponent } from './components/private-tasks/private-tasks.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from "./material.modules";
+
 
 @NgModule({
   declarations: [
@@ -20,8 +22,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,MaterialModule
   ],
+  exports:[MaterialModule],
   providers: [],
   bootstrap: [AppComponent]
 })

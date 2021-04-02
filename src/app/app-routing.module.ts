@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatToolbarModule } from "@angular/material/toolbar";
+
 
 //components
 import {TaskComponent} from './components/task/task.component'
@@ -34,7 +33,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),MatTabsModule,MatToolbarModule],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from "@angular/router";
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatTabsModule } from "@angular/material/tabs";
 
 @Component({
   selector: 'app-root',
@@ -14,17 +15,17 @@ export class AppComponent {
   constructor(private router: Router){
     this.navLinks=[
       {
-        label:'First',
+        label:'Tasks',
         link:'./task',
         index:0
       },
       {
-        label:'Second',
+        label:'Sign up',
         link:'./signup',
         index:1
       },
       {
-        label:'First',
+        label:'Sign in',
         link:'./signin',
         index:2
       }
