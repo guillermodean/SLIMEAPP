@@ -1,13 +1,25 @@
 <div class="row">
-    <div class="col-md-4 mx-auto">
+    <div class="parent">
+      <form  (submit)='signUp()'> <!--[formGroup]='loginform'-->
         <p>
             <mat-form-field appearance="outline">
               <mat-label>E-mail</mat-label>
-              <input matInput placeholder="Email" (submit)="signUp()">
+              <input  matInput name="email" [(ngModel)]="user.email"placeholder="Email" >
               <mat-icon matSuffix>email</mat-icon>
               <mat-hint>introduzca su correo electronico</mat-hint>
             </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input  matInput name="password"[(ngModel)]="user.password" placeholder="Email" >
+              <mat-icon matSuffix>lock</mat-icon>
+              <mat-hint>introduzca su contraseña</mat-hint>
+            </mat-form-field>
           </p>
+
+          <button mat-raised-button color="primary" type="submit">Submit</button>
+      </form>
     </div>
       
 </div>
