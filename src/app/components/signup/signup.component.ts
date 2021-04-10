@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { AuthService } from "../../services/auth.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +15,9 @@ export class SignupComponent implements OnInit {
     password:''
   }
 
-  constructor(private authservices:AuthService) { }
+  constructor(
+    private authservices:AuthService,
+    private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -25,6 +28,7 @@ export class SignupComponent implements OnInit {
         res=>{
           console.log(res)
           localStorage.setItem('token',res.token)
+          this.router.navigate(['/private'])
         },
         err=>{
           console.log(err)
