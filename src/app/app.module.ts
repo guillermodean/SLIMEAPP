@@ -10,6 +10,8 @@ import { PrivateTasksComponent } from './components/private-tasks/private-tasks.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from "./material.modules";
 import {AuthGuard} from './auth.guard'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 
 @NgModule({
@@ -23,10 +25,17 @@ import {AuthGuard} from './auth.guard'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,MaterialModule
+    BrowserAnimationsModule,
+    MaterialModule,
+    HttpClientModule
   ],
   exports:[MaterialModule],
-  providers: [AuthGuard],
+  providers: [AuthGuard,
+  {
+    provide:HTTP_INTERCEPTORS,
+    useClass:TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

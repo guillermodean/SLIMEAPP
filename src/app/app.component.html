@@ -7,12 +7,17 @@
   <mat-tab label="Sign up"> Sign up</mat-tab>
 </mat-tab-group>
 -->
+<ng-container *ngIf="!authservice.logdegIn();else loggedIn">
+  <nav mat-tab-nav-bar mat-stretch-tabs animationDuration="2000ms">
+    <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.link" routerLinkActive #rla="routerLinkActive"
+      [active]="rla.isActive">{{link.label}}
+    </a>
+  </nav>
+</ng-container>
+<ng-template #loggedIn>
+  <h1>Welcome to your pito moreno</h1>
+</ng-template>
 
-<nav mat-tab-nav-bar mat-stretch-tabs animationDuration="2000ms">
-  <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.link" routerLinkActive #rla="routerLinkActive"
-    [active]="rla.isActive">{{link.label}}
-  </a>
-</nav>
 
 <div class="container p-5">
   <router-outlet></router-outlet>

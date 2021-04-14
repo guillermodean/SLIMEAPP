@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from "@angular/router";
-import {MatToolbarModule} from '@angular/material/toolbar';
-import { MatTabsModule } from "@angular/material/tabs";
+import { AuthService } from "./services/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -12,7 +11,7 @@ export class AppComponent {
   title = 'frontend';
   navLinks:any[];
   activeLinkIndex=-1;
-  constructor(private router: Router){
+  constructor(private router: Router,public authservice:AuthService){
     this.navLinks=[
       {
         label:'Tasks',

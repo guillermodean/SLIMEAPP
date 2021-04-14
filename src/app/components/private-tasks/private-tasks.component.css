@@ -1,0 +1,10 @@
+.button-logout {
+    top: auto !important;
+    right: 20px !important;
+    bottom: 10px !important;
+    left: auto !important;
+    position: fixed !important;
+}
+.titulo {
+    text-align: center
+}
