@@ -9,11 +9,13 @@ import { Router } from "@angular/router";
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
+  
   user={
     email:'',
     password:''
   }
+
+  hide = true;
 
   constructor(
     private authservices:AuthService,

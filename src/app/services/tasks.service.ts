@@ -16,4 +16,9 @@ export class TasksService {
   getPrivateTasks() {
     return this.http.get<any>(this.URL+'/private-tasks');
   }
+
+  postTask(task: { name: string; description: string;date: any }){
+    return this.http.post<any>(this.URL+'/tasks',task);
+
+  }
 }
