@@ -21,4 +21,11 @@ export class TasksService {
     return this.http.post<any>(this.URL+'/tasks',task);
 
   }
+  deleteTask(id:any){
+    console.log(this.URL+'/tasks/'+id,id)
+    return this.http.delete<any>(this.URL+'/tasks/'+id,id)
+  }
+  editTask(id:any){
+    return this.http.put<any>(this.URL+'/tasks',id)
+  }
 }

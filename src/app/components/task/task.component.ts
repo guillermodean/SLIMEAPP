@@ -4,9 +4,10 @@ import { TasksService } from "../../services/tasks.service";
 
 export interface TaskDef {
   name: String;
-  _id: String;
+  _id: Object;
   description: String;
-  date: Date;
+  date: string;
+  actions:string
 }
 @Component({
   selector: 'app-task',
@@ -21,9 +22,10 @@ export class TaskComponent implements OnInit {
     _id:'',
     name: '',
     description: '',
-    date: ''
+    date: '',
+    actions:''
   }
-  displayedColumns: string[] = ['_id', 'name', 'description', 'date'];
+  displayedColumns: string[] = [ 'name', 'description', 'date','actions'];
 
   constructor(private taskService: TasksService) { }
 
@@ -51,6 +53,23 @@ export class TaskComponent implements OnInit {
       }
     )
 
+  }
+  deleteTask(task:TaskDef){
+    this.taskService.deleteTask(task._id)
+    .subscribe(
+      res=>{
+        console.log(res)
+      },
+      err =>{
+        console.log(err)
+        alert('error al borrar tarea')
+      }
+    )
+
+    // this.taskService.deleteTask(id)
+  }
+  editTask(task:TaskDef){
+    console.log(task._id)
   }
 
 }
