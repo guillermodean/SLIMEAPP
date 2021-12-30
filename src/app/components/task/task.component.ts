@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TasksService } from "../../services/tasks.service";
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 export interface TaskDef {
@@ -19,7 +21,7 @@ export class TaskComponent implements OnInit {
 
   tasks: any = []
   task = {
-    _id:'',
+    _id:null,
     name: '',
     description: '',
     date: '',
@@ -27,9 +29,11 @@ export class TaskComponent implements OnInit {
   }
   displayedColumns: string[] = [ 'name', 'description', 'date','actions'];
 
-  constructor(private taskService: TasksService) { }
+  constructor(private taskService: TasksService) {
+  }
 
   ngOnInit(): void {
+
     this.taskService.getTasks()
       .subscribe(
         res => {
@@ -59,6 +63,7 @@ export class TaskComponent implements OnInit {
     .subscribe(
       res=>{
         console.log(res)
+        this.ngOnInit()
       },
       err =>{
         console.log(err)

@@ -18,6 +18,7 @@ export class TasksService {
   }
 
   postTask(task: { name: string; description: string;date: any }){
+    console.log(task)
     return this.http.post<any>(this.URL+'/tasks',task);
 
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../services/auth.service";
+import { MatFormFieldModule } from "@angular/material/form-field";
 import { Router } from "@angular/router";
 
 @Component({
@@ -8,26 +9,33 @@ import { Router } from "@angular/router";
   styleUrls: ['./signing.component.css']
 })
 export class SigningComponent implements OnInit {
-  user={
-    email:'',
-    password:''
+  user = {
+    email: '',
+    password: ''
   }
-  constructor(private authservice:AuthService, private router:Router) { }
+  hide = true;
+  constructor(private authservice: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
-  signIn(){
+  signIn() {
     console.log(this.user)
     this.authservice.signIn(this.user)
-    .subscribe(
-      res=>{console.log(res);
-      localStorage.setItem('token',res.token);
-      this.router.navigate(['/private'])
-    },
-      err=>{console.log(err)
-      alert('Contraseña incoreecta')}
+      .subscribe(
+        res => {
+          console.log(res);
+          localStorage.setItem('token', res.token);
+          this.router.navigate(['/task'])
+            .then(() => {
+              window.location.reload();
+            });
+        },
+        err => {
+          console.log(err)
+          alert('Contraseña incoreecta')
+        }
 
-    )
+      )
   }
 
 }

@@ -12,12 +12,13 @@ import { AuthGuard } from "./auth.guard";
 const routes: Routes = [
   {
     path:'',
-    redirectTo:'task',
+    redirectTo:'signin',
     pathMatch:'full'
   },
   {
     path:'task',
-    component:TaskComponent
+    component:TaskComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:'signin',
@@ -25,7 +26,8 @@ const routes: Routes = [
   },
   {
     path:'signup',
-    component:SignupComponent
+    component:SignupComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:'private',

@@ -15,7 +15,14 @@
   </nav>
 </ng-container>
 <ng-template #loggedIn>
-  <h1>Welcome to your pito moreno</h1>
+  <ng-container>
+    <nav mat-tab-nav-bar mat-stretch-tabs animationDuration="2000ms">
+      <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.link" routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive">{{link.label}}
+      </a>
+      <a mat-tab-link (click)="authservice.logOut()">Log out</a>
+    </nav>
+  </ng-container>
 </ng-template>
 
 
