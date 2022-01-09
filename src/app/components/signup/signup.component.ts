@@ -9,36 +9,37 @@ import { Router } from "@angular/router";
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  
-  user={
-    email:'',
-    password:''
+
+  user = {
+    email: '',
+    password: ''
   }
 
   hide = true;
 
   constructor(
-    private authservices:AuthService,
-    private router:Router) { }
+    private authservices: AuthService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
-  signUp(){
+  signUp() {
     console.log(this.user)
     this.authservices.signUp(this.user)
-      .subscribe (
-        res=>{
+      .subscribe(
+        res => {
           console.log(res)
           // localStorage.removeItem
-          localStorage.setItem('token',res.token)
+          localStorage.setItem('token', res.token)
           this.router.navigate(['/task'])
+          alert('please check your email for confirmation')
         },
-        err=>{
+        err => {
           console.log(err)
           alert('el usuario ya existe en la aplicación')
         }
       )
-    
+
 
   }
 }

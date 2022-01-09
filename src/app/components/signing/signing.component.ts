@@ -32,7 +32,7 @@ export class SigningComponent implements OnInit {
         },
         err => {
           console.log(err)
-          alert('Contraseña incoreecta')
+          alert('No se ha podido logear: '+ err.error)
         }
 
       )
