@@ -29,11 +29,13 @@ export class SignupComponent implements OnInit {
       .subscribe (
         res=>{
           console.log(res)
+          // localStorage.removeItem
           localStorage.setItem('token',res.token)
-          this.router.navigate(['/private'])
+          this.router.navigate(['/task'])
         },
         err=>{
           console.log(err)
+          alert('el usuario ya existe en la aplicación')
         }
       )
     
