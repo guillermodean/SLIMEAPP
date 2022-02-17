@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TasksService } from "../../services/tasks.service";
+import {WeatherService} from "../../services/weather.service"
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -29,11 +30,17 @@ export class TaskComponent implements OnInit {
   }
   displayedColumns: string[] = [ 'name', 'description', 'date','actions'];
 
-  constructor(private taskService: TasksService) {
+  constructor(private taskService: TasksService, private weatherService:WeatherService) {
   }
 
   ngOnInit(): void {
 
+    this.weatherService.getWeather()
+      .subscribe(
+        res=> {
+          console.log(res)
+        }
+      )
     this.taskService.getTasks()
       .subscribe(
         res => {
