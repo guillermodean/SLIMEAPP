@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatCardModule} from '@angular/material/card'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -12,6 +12,7 @@ import { MaterialModule } from "./material.modules";
 import {AuthGuard} from './auth.guard'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule
   ],
   exports:[MaterialModule],
   providers: [AuthGuard,

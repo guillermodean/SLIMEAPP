@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatCardModule } from '@angular/material/card'
 import { TasksService } from "../../services/tasks.service";
-import {WeatherService} from "../../services/weather.service"
+import { WeatherService } from "../../services/weather.service"
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -10,7 +11,7 @@ export interface TaskDef {
   _id: Object;
   description: String;
   date: string;
-  actions:string
+  actions: string
 }
 @Component({
   selector: 'app-task',
@@ -22,30 +23,36 @@ export class TaskComponent implements OnInit {
 
   tasks: any = []
   task = {
-    _id:null,
+    _id: null,
     name: '',
     description: '',
     date: '',
-    actions:''
+    actions: ''
   }
-  displayedColumns: string[] = [ 'name', 'description', 'date','actions'];
+  weather: any = []
+  today:string = ""
+  displayedColumns: string[] = ['name', 'description', 'date', 'actions'];
 
-  constructor(private taskService: TasksService, private weatherService:WeatherService) {
+  constructor(private taskService: TasksService, private weatherService: WeatherService) {
   }
 
   ngOnInit(): void {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+    var yyyy = today.getFullYear();
+    this.today = dd + '/' + mm + '/' + yyyy;
 
     this.weatherService.getWeather()
       .subscribe(
-        res=> {
-          console.log(res)
+        res => {
+          this.weather = res
         }
       )
     this.taskService.getTasks()
       .subscribe(
         res => {
           this.tasks = res;
-          console.log(this.tasks)
         },
         err => console.log(err)
       );
@@ -53,34 +60,34 @@ export class TaskComponent implements OnInit {
   postTask() {
     console.log(this.task);
     this.taskService.postTask(this.task)
-    .subscribe(
-      res => {
-        console.log(res);
-        this.ngOnInit()
-      },
-      err => {
-        console.log(err)
-        alert('error al introducir tarea')
-      }
-    )
+      .subscribe(
+        res => {
+          console.log(res);
+          this.ngOnInit()
+        },
+        err => {
+          console.log(err)
+          alert('error al introducir tarea')
+        }
+      )
 
   }
-  deleteTask(task:TaskDef){
+  deleteTask(task: TaskDef) {
     this.taskService.deleteTask(task._id)
-    .subscribe(
-      res=>{
-        console.log(res)
-        this.ngOnInit()
-      },
-      err =>{
-        console.log(err)
-        alert('error al borrar tarea')
-      }
-    )
+      .subscribe(
+        res => {
+          console.log(res)
+          this.ngOnInit()
+        },
+        err => {
+          console.log(err)
+          alert('error al borrar tarea')
+        }
+      )
 
     // this.taskService.deleteTask(id)
   }
-  editTask(task:TaskDef){
+  editTask(task: TaskDef) {
     console.log(task._id)
   }
 

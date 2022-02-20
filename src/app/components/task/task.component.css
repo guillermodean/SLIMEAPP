@@ -11,6 +11,44 @@
 table {
     width: 95%;
 }
+
+mat-card {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+div {
+  flex:content;
+  border-radius: 10px;
+  padding: 10px;
+}
+.outlook {
+  color: black;
+  background: rgba(0,0,0,0.1);
+  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.temp {
+  background: lightblue;
+  color: black;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+
+.big-text {
+  font-size: 30px;
+}
+
+
 .col {
   float:left;
   width: 50%;
