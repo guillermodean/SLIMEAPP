@@ -23,35 +23,38 @@
     </div>
     </mat-card-content>
     </mat-card>
-    <form (submit)='postTask()'>
-      <!--[formGroup]='loginform'-->
-      <p>
-        <mat-form-field appearance="outline">
-          <mat-label>name</mat-label>
-          <input matInput name="name" [(ngModel)]="task.name" placeholder="Titulo de la tarea">
-          <mat-icon matSuffix>task</mat-icon>
-          <mat-hint>introduzca el titulo de la tarea</mat-hint>
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field appearance="outline">
-          <mat-label>description</mat-label>
-          <input matInput name="description" [(ngModel)]="task.description" placeholder="description">
-          <mat-icon matSuffix>file</mat-icon>
-          <mat-hint>introduzca su contraseña</mat-hint>
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field appearance="outline">
-          <mat-label>date</mat-label>
-          <input matInput name="date" [matDatepicker]="picker" [(ngModel)]="task.date" placeholder="fecha">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </p>
-
-      <button mat-raised-button color="primary" type="submit">Tarea</button>
-    </form>
+    <mat-card>
+      <form (submit)='postTask()'>
+        <!--[formGroup]='loginform'-->
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Tarea</mat-label>
+            <input matInput name="name" [(ngModel)]="task.name" placeholder="Titulo de la tarea">
+            <mat-icon matSuffix>task</mat-icon>
+            <mat-hint>introduzca el titulo de la tarea</mat-hint>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Descripcion</mat-label>
+            <input matInput name="description" [(ngModel)]="task.description" placeholder="description">
+            <mat-icon matSuffix>file</mat-icon>
+            <mat-hint>detalles de la tarea</mat-hint>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Fecha</mat-label>
+            <input matInput name="date" [matDatepicker]="picker" [(ngModel)]="task.date" placeholder="fecha">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </p>
+  
+        <button class="submit" mat-raised-button color="primary" type="submit">Tarea</button>
+      </form>
+    </mat-card>
+    
   </div>
   <div class="col right">
     <table mat-table [dataSource]="tasks" class="mat-elevation-z8">

@@ -16,6 +16,10 @@ mat-card {
   padding-bottom: 1rem;
   margin-bottom: 1rem;
 }
+.submint{
+  justify-content: center;
+  align-items: center;
+}
 
 .flex-row {
   display: flex;
