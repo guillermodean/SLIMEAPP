@@ -34,6 +34,11 @@ export class AppComponent {
           label: 'Tasks',
           link: './task',
           index: 2
+        },
+        {
+          label:'lista de compras',
+          link: './lista-compra',
+          index: 3
         }
       ];
       this.ngOnInit

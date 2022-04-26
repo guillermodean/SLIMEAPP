@@ -12,6 +12,7 @@ import { MaterialModule } from "./material.modules";
 import {AuthGuard} from './auth.guard'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { ListaCompraComponent } from './components/lista-compra/lista-compra.component';
 
 
 
@@ -21,7 +22,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     SignupComponent,
     SigningComponent,
     TaskComponent,
-    PrivateTasksComponent
+    PrivateTasksComponent,
+    ListaCompraComponent
   ],
   imports: [
     BrowserModule,

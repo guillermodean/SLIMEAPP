@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+            <h4 class="card-title">Lista de compras</h4>
+            </div>
+            <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                <thead class=" text-primary">
+                    <th>
+                    No.
+                    </th>
+                    <th>
+                    Nombre
+                    </th>
+                    <th>
+                    Descripcion
+                    </th>
+                    <th>
+                    Fecha
+                    </th>
+                    <th class="text-right">
+                    Acciones
+                    </th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let list of lista; let i = index">
+                    <td>
+                        {{i+1}}
+                    </td>
+                    <td>
+                        {{list.Producto}}
+                    </td>
+                    <td>
+                        {{list.Marca}}
+                    </td>
+                    <td>
+                        {{list.Cantidad}}
+                    </td>
+                    <td class="text-right">
+                        <button class="btn btn-primary btn-sm" >Editar</button> 
+                        <!-- (click)="editTask(task)" -->
+                        <button class="btn btn-danger btn-sm" >Eliminar</button>
+                        <!-- (click)="deleteTask(task)" -->
+                    </td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
