@@ -13,7 +13,9 @@ import {AuthGuard} from './auth.guard'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { ListaCompraComponent } from './components/lista-compra/lista-compra.component';
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatRadioModule } from '@angular/material/radio';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -31,7 +33,10 @@ import { ListaCompraComponent } from './components/lista-compra/lista-compra.com
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    MatRadioModule,
+    MatFormFieldModule
   ],
   exports:[MaterialModule],
   providers: [AuthGuard,
