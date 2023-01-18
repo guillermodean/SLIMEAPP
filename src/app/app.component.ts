@@ -26,19 +26,24 @@ export class AppComponent {
           index: 0
         },
         {
+          label: 'Home',
+          link: './Home',
+          index: 1
+        },
+        {
           label: 'Sign up',
           link: './signup',
-          index: 1
+          index: 2
         },
         {
           label: 'Tasks',
           link: './task',
-          index: 2
+          index: 3
         },
         {
           label:'lista de compras',
           link: './lista-compra',
-          index: 3
+          index: 4
         }
       ];
       this.ngOnInit

@@ -9,6 +9,7 @@ import {SignupComponent} from './components/signup/signup.component'
 import {PrivateTasksComponent} from './components/private-tasks/private-tasks.component'
 import { AuthGuard } from "./auth.guard";
 import { ListaCompraComponent } from './components/lista-compra/lista-compra.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,11 @@ const routes: Routes = [
     path:'lista-compra',
     component:ListaCompraComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path:'Home',
+    component:HomeComponent,
+    canActivate: [AuthGuard]    
   }
 ];
 

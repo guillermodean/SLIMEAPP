@@ -3,36 +3,38 @@
     width: 50%;
     padding: 10px;
   
-  }
-  .row{
+}
+.row{
     content: "";
     display: flex;
     clear: both;
-  }
-  .left{
+}
+.left{
     width: 75%;
     text-align: center;
     justify-content: space-between;
-  }
-  .right{
+}
+.right{
     width: 75%;
-  }
+    text-align: center;
+    justify-content: space-between;
+}
 
-  .container {
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding-top: 1%;
-    background-image: url('../../../public/img/fondo.jpg');
-    background-color: #ccc;
-    height: fit-content;
-  }
-  table {
-      width: 95%;
-  }
+    /* background-image: url('../../../public/img/fondo.jpg'); */
+    /* background-color: #ccc; */
+    height: 100%;
+}
+table {
+      width: 100%;
+}
   
-  mat-card {
+mat-card {
     padding-bottom: 1rem;
     margin-bottom: 1rem;
     

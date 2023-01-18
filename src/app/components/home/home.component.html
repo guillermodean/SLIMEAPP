@@ -1,0 +1,13 @@
+<div class="container" style="height: fit-content">
+  <div class="column flex">
+    <div class="row flex">
+      <mat-card class="mat-elevation-z5" *ngFor="let card of cards" [routerLink]="card.link">
+        <img class="image" mat-card-image [src]="card.image" />
+        <mat-card-actions>
+          <!-- <button mat-button href="{{card.link}}">{{card.text}}</button> -->
+          <a mat-button href="{{card.link}}">{{card.text}}</a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -16,6 +16,8 @@ import { ListaCompraComponent } from './components/lista-compra/lista-compra.com
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { HomeComponent } from './components/home/home.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     SigningComponent,
     TaskComponent,
     PrivateTasksComponent,
-    ListaCompraComponent
+    ListaCompraComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +39,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatCardModule,
     MatButtonModule,
     MatRadioModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatGridListModule
   ],
-  exports:[MaterialModule],
+  exports:[MaterialModule,
+    MatCardModule,
+    MatButtonModule,
+    MatRadioModule,
+    MatFormFieldModule,
+    MatGridListModule],
   providers: [AuthGuard,
   {
     provide:HTTP_INTERCEPTORS,

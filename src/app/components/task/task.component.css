@@ -4,8 +4,8 @@
   align-items: center;
   flex-direction: column;
   padding-top: 1%;
-  background-image: url('../../../public/img/fondo.jpg');
-  background-color: #ccc;
+  /* background-image: url('../../../public/img/fondo.jpg'); */
+  /* background-color: #ccc; */
   height: 100%;
 }
 table {
